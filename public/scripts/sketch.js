@@ -2,7 +2,8 @@
 let canvas;
 let sketchWidth;
 let sketchHeight;
-let sketchMarginRatio = 1.1;
+const sketchMarginRatio = 1.1;
+let sketchSide;
 let fontStyle;
 
 function preload(){
@@ -10,9 +11,8 @@ function preload(){
 }
 
 function setup() {
-    sketchWidth = windowWidth / sketchMarginRatio;
-    sketchHeight = windowHeight / sketchMarginRatio;
-    canvas = createCanvas(sketchWidth, sketchHeight);
+    setSketchSide();
+    canvas = createCanvas(sketchSide, sketchSide);
     canvas.parent('sketch-holder');
     frameRate(24);
     imageMode(CENTER);
@@ -28,11 +28,16 @@ function draw() {
     // placeholder:
         // textFont(fontStyle)
         // offset the textbox / button by half the width of the textbox
-        text("click me.", sketchWidth/2, sketchHeight-sketchHeight/7)
+        text("click me.", sketchSide/2, sketchSide-sketchSide/7)
 }
 
 function windowResized() {
+    setSketchSide();
+    resizeCanvas(sketchSide, sketchSide);
+}
+
+function setSketchSide(){
     sketchWidth = windowWidth / sketchMarginRatio;
     sketchHeight = windowHeight / sketchMarginRatio;
-    resizeCanvas(sketchWidth, sketchHeight);
+    sketchSide = sketchWidth < sketchHeight ? sketchWidth : sketchHeight;
 }
