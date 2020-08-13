@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/jamiejamiebobamie/i-am-baron-von-tessan#readme",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "express": "^4.17.1"
   }
 }
