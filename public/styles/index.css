@@ -9,7 +9,7 @@ body{
     overflow: hidden;
     position: relative;
 }
-
+/* div needs to be locked in place on mobile... */
 .sketch-holder{
     position: absolute;
     display: flex;

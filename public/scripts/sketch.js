@@ -30,8 +30,9 @@ function setup() {
 
 function draw() {
     // 1.) background color
-    background(100, 100, 200);
+    background(240, 240, 240);
 
+    noStroke()
     // 2.) gif(s)
 
     fill(100,0,0)
@@ -55,6 +56,19 @@ function draw() {
     if (isDrawing){
         buildStroke();
     }
+
+    // 4.) stand-in button for undoing the last stroke.
+        // pop last stroke from 'strokes' array.
+    rect(0,.9*sketchSide,.1*sketchSide)
+
+    // 5.) stand-in button for clearing the screen.
+        // initalize 'strokes' to an empty array
+    rect(.45*sketchSide,.9*sketchSide,.1*sketchSide)
+
+    // 6.) stand-in button for submitting drawing.
+        // submit strokes to database.
+        // bring-up the next window. (submit text descriptor of drawing).
+    rect(.9*sketchSide,.9*sketchSide,.1*sketchSide)
 }
 
 function mouseReleased() {
